@@ -10,38 +10,42 @@
 				<div class="panel-group">
 				<div class='panel panel-info'>
 				<div class='panel-heading'>
-						<a href="<?php echo site_url('admin/kegiatan/tambah') ?>"><i class="glyphicon glyphicon-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/siswa/tambah') ?>"><i class="glyphicon glyphicon-plus"></i> Add New</a>
 				</div>
 				<div class='panel-body'>
 						<div class="table-responsive">
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>Judul</th>
-										<th>Tanggal</th>
+										<th>NISN</th>
+										<th>Nama</th>
 										<th>Foto</th>
-										<th>Keterangan</th>
+										<th>Asal Sekolah</th>
+                                        <th>Alamat</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($kegiatan as $product): ?>
+									<?php foreach ($siswa as $siswa): ?>
 									<tr>
 										<td width="150">
-											<?php echo $product->judul ?>
+											<?php echo $siswa->NISN ?>
 										</td>
 										<td width="250">
-											<?php echo $product->tanggal ?>
+											<?php echo $siswa->nama ?>
 										</td>
 										<td>
-											<img src="<?php echo base_url('upload/kegiatan/'.$product->foto) ?>" width="64" />
+											<img src="<?php echo base_url('upload/siswa/'.$siswa->foto) ?>" width="64" />
+										</td>
+                                        <td width="250">
+											<?php echo $siswa->asal_sekolah ?>
 										</td>
 										<td>
-											<?php echo substr($product->keterangan, 0, 120) ?>...</td>
+											<?php echo substr($siswa->alamat, 0, 120) ?>...</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/kegiatan/edit/'.$product->id_kegiatan) ?>"
+											<a href="<?php echo site_url('admin/siswa/edit/'.$siswa->id_siswa) ?>"
 											 class="btn btn-small"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/kegiatan/delete/'.$product->id_kegiatan) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/siswa/delete/'.$siswa->id_siswa) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
 										</td>
 									</tr>

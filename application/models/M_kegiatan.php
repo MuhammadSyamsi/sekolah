@@ -37,6 +37,8 @@ class M_kegiatan extends CI_Model
         $post = $this->input->post();
         $this->id_kegiatan = uniqid();
         $this->judul = $post["judul"];
+        $this->tanggal = $post["tanggal"];
+        $this->foto = $this->_uploadImage();
         $this->keterangan = $post["keterangan"];
         $this->db->insert($this->_table, $this);
     }
@@ -46,12 +48,56 @@ class M_kegiatan extends CI_Model
         $post = $this->input->post();
         $this->id_kegiatan = $post["id"];
         $this->judul = $post["judul"];
+        $this->tanggal = $post["tanggal"];
+
+        if (!empty($_FILES["foto"]["name"])) {
+            $this->foto = $this->_uploadImage();
+        } else {
+            $this->foto = $post["old_image"];
+        }
+        
         $this->keterangan = $post["keterangan"];
         $this->db->update($this->_table, $this, array('id_kegiatan' => $post['id']));
     }
 
     public function delete($id)
     {
+        $this->_deleteImage($id);
         return $this->db->delete($this->_table, array("id_kegiatan" => $id));
     }
+
+    private function _uploadImage()
+    {
+        $config['upload_path']          = './upload/kegiatan/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['file_name']            = $this->id_kegiatan;
+        $config['overwrite']			= true;
+        $config['max_size']             = 5120; // 5MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto')) {
+            return $this->upload->data("file_name");
+    }
+    
+        return "default.jpg";
+    }
+
+    private function _deleteImage($id)
+    {
+        $kegiatan = $this->getById($id);
+        if ($kegiatan->foto != "default.jpg") {
+            $filename = explode(".", $kegiatan->foto)[0];
+            return array_map('unlink', glob(FCPATH."upload/kegiatan/$filename.*"));
+        }
+    }
+
+/*     public function cari()
+    {
+        $this->_deleteImage($id);
+        return $this->db->delete($this->_table, array("id_kegiatan" => $id));
+    }
+*/
 }

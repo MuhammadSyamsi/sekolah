@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   
    function __construct(){
      parent::__construct();
-     $this->load->model('m_kegiatan2');
+     $this->load->model('m_kegiatan');
      $this->load->helper('url');
      if($this->session->userdata('status') != "login"){
        redirect(base_url("login"));
@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   
    function index(){
      $this->load->view('admin');
-     $data['index'] = $this->m_kegiatan2->ambil_data()->result();
+     $data['index'] = $this->m_kegiatan->getAll();
      $this->load->view('admin/dashboard',$data );
    }
  }

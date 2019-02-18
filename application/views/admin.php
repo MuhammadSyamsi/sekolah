@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fa fa-laptop nav_icon"></i>Kegiatan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url('admin/kegiatan') ?>">Tambah Kegiatan</a>
+                                    <a href="<?php echo base_url('admin/kegiatan/tambah') ?>">Tambah Kegiatan</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('admin/kegiatan') ?>">List Kegiatan</a>
@@ -61,13 +61,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i>Informasi<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users nav_icon"></i>Siswa<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="admin/event">Event</a>
+                                    <a href="<?php echo base_url('admin/siswa/tambah') ?>">Tambah</a>
                                 </li>
                                 <li>
-                                    <a href="admin/lomba">Info Lomba</a>
+                                    <a href="<?php echo base_url('admin/siswa') ?>">List</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-indent nav_icon"></i>Absensi<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url('admin/absensi/tambah') ?>">Tambah</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('admin/absensi') ?>">List</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

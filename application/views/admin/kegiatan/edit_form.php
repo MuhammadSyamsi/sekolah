@@ -31,6 +31,15 @@
 									<?php echo form_error('judul') ?>
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label for="name">Tanggal*</label>
+								<input class="form-control1 <?php echo form_error('tanggal') ? 'is-invalid':'' ?>"
+								 type="date" name="tanggal" placeholder="Tanggal Kegiatan..." value="<?php echo $kegiatan->tanggal ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('tanggal') ?>
+								</div>
+							</div>
 							
 							<div class="form-group">
 								<label for="name">Foto</label>
@@ -43,12 +52,9 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">Keterangan*</label>
-								<textarea class="form-control1 <?php echo form_error('keterangan') ? 'is-invalid':'' ?>"
+								<label for="name">Keterangan</label>
+								<textarea class="form-control1"
 								 name="keterangan" placeholder="Keterangan Kegiatan..."><?php echo $kegiatan->keterangan ?></textarea>
-								<div class="invalid-feedback">
-									<?php echo form_error('keterangan') ?>
-								</div>
 							</div>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />

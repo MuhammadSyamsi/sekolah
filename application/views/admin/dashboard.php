@@ -79,35 +79,7 @@
 		   </div>
 		  </div>
 		</div>
-
-		<div class="col-md-12 span_3">
-		  <div class="bs-example1" data-example-id="contextual-table">
-			<a class='btn btn-warning panel-body' href="<?php echo base_url('admin/komik') ?>"><i>- Komik -</i></a>
-          <table class="table">
-		      <thead>
-		        <tr>
-		          <th>id</th>
-		          <th>Judul</th>
-		          <th>Genre</th>
-							<th>Gambar</th>
-							<th>deskripsi</th>
-		        </tr>
-		      </thead>
-		      <tbody>
-            <?php foreach($index as $u){ ?>
-		        <tr class="active">
-		          <td><?php echo $u->id ?></td>
-		          <td><?php echo $u->judul ?></td>
-		          <td><?php echo $u->judul ?></td>
-                  <td width="500px"> <div class='col-md-3' ><img class='img-responsive' src="<?php echo base_url($u->foto) ?>" /></div> </td>
-                  <td><?php echo $u->keterangan ?></td>
-                </tr>
-            <?php } ?>
-		      </tbody>
-		    </table>
-		   </div>
-			 </div>
-			 
+		 
 		<div class="clearfix"> </div>
 	    </div>
 		<div class="copy">

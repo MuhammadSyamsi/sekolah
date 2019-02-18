@@ -15,29 +15,29 @@
 				<div class="panel-group">
 				<div class='panel panel-info'>
 					<div class="panel-heading">
-						<a href="<?php echo site_url('admin/kegiatan/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+						<a href="<?php echo site_url('admin/siswa/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
 					</div>
 					<div class="panel-body">
 
-						<form action="<?php base_url('admin/kegiatan/tambah') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url('admin/siswa/tambah') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
-								<label for="name">Judul*</label>
-								<input class="form-control1 <?php echo form_error('judul') ? 'is-invalid':'' ?>"
-								 type="text" name="judul" placeholder="Judul Kegiatan..." />
+								<label for="name">NISN*</label>
+								<input class="form-control1 <?php echo form_error('NISN') ? 'is-invalid':'' ?>"
+								 type="text" name="NISN" placeholder="NISN Siswa..." />
 								<div class="invalid-feedback">
-									<?php echo form_error('judul') ?>
+									<?php echo form_error('NISN') ?>
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="name">Tanggal</label>
-								<input class="form-control1 <?php echo form_error('tanggal') ? 'is-invalid':'' ?>"
-								 type="date" name="tanggal" placeholder="Tanggal Kegiatan..." />
+                            <div class="form-group">
+								<label for="name">Nama*</label>
+								<input class="form-control1 <?php echo form_error('nama') ? 'is-invalid':'' ?>"
+								 type="text" name="nama" placeholder="Nama Siswa..." />
 								<div class="invalid-feedback">
-									<?php echo form_error('tanggal') ?>
+									<?php echo form_error('nama') ?>
 								</div>
 							</div>
-							
+
 							<div class="form-group">
 								<label for="name">Foto</label>
 								<input class="form-control-file <?php echo form_error('foto') ? 'is-invalid':'' ?>"
@@ -48,12 +48,18 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">Keterangan*</label>
-								<textarea class="form-control1 <?php echo form_error('keterangan') ? 'is-invalid':'' ?>"
-								 name="keterangan" placeholder="Keterangan Kegiatan..."></textarea>
+								<label for="name">Asal Sekolah*</label>
+								<textarea class="form-control1 <?php echo form_error('asal_sekolah') ? 'is-invalid':'' ?>"
+								 name="asal_sekolah" placeholder="Asal Sekolah Siswa..."></textarea>
 								<div class="invalid-feedback">
-									<?php echo form_error('keterangan') ?>
+									<?php echo form_error('asal_sekolah') ?>
 								</div>
+							</div>
+
+                            <div class="form-group">
+								<label for="name">Alamat</label>
+								<textarea class="form-control1"
+								 name="alamat" placeholder="Alamat Siswa..."></textarea>
 							</div>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />

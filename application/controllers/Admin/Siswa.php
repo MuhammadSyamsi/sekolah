@@ -2,12 +2,12 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kegiatan extends CI_Controller
+class Siswa extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("m_kegiatan");
+        $this->load->model("m_siswa");
         $this->load->library('form_validation');
     }
 
@@ -21,45 +21,45 @@ class Kegiatan extends CI_Controller
     {
         $this->ceklogin();
         $this->load->view('admin');
-        $data["kegiatan"] = $this->m_kegiatan->getAll();
-        $this->load->view("admin/kegiatan/list", $data);
+        $data["siswa"] = $this->m_siswa->getAll();
+        $this->load->view("admin/siswa/list", $data);
     }
 
     public function tambah()
     {
         $this->ceklogin();
-        $product = $this->m_kegiatan;
+        $siswa = $this->m_siswa;
         $validation = $this->form_validation;
-        $validation->set_rules($product->rules());
+        $validation->set_rules($siswa->rules());
 
         if ($validation->run()) {
-            $product->save();
+            $siswa->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
         $this->load->view("admin.php");
-        $this->load->view("admin/kegiatan/new_form");
+        $this->load->view("admin/siswa/new_form");
     }
 
     public function edit($id = null)
     {
         $this->ceklogin();
-        if (!isset($id)) redirect('admin/kegiatan');
+        if (!isset($id)) redirect('admin/siswa');
        
-        $product = $this->m_kegiatan;
+        $siswa = $this->m_siswa;
         $validation = $this->form_validation;
-        $validation->set_rules($product->rules());
+        $validation->set_rules($siswa->rules());
 
         if ($validation->run()) {
-            $product->update();
+            $siswa->update();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $data["kegiatan"] = $product->getById($id);
-        if (!$data["kegiatan"]) show_404();
+        $data["siswa"] = $siswa->getById($id);
+        if (!$data["siswa"]) show_404();
         
         $this->load->view("admin.php");
-        $this->load->view("admin/kegiatan/edit_form", $data);
+        $this->load->view("admin/siswa/edit_form", $data);
     }
 
     public function delete($id=null)
@@ -67,8 +67,8 @@ class Kegiatan extends CI_Controller
         $this->ceklogin();
         if (!isset($id)) show_404();
         
-        if ($this->m_kegiatan->delete($id)) {
-            redirect(site_url('admin/kegiatan'));
+        if ($this->m_siswa->delete($id)) {
+            redirect(site_url('admin/siswa'));
         }
     }
 }
