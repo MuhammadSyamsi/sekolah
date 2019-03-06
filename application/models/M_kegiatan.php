@@ -94,10 +94,4 @@ class M_kegiatan extends CI_Model
         }
     }
 
-/*     public function cari()
-    {
-        $this->_deleteImage($id);
-        return $this->db->delete($this->_table, array("id_kegiatan" => $id));
-    }
-*/
 }

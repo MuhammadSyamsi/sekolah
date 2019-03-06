@@ -84,7 +84,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-
+                        <li>
+                            <a href="#"><i class="fa fa-book nav_icon"></i>Nilai<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url('admin/nilai/tambah') ?>">Tambah</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('admin/nilai') ?>">List</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-user nav_icon"></i>Profil<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

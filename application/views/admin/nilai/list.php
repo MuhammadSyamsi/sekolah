@@ -10,7 +10,7 @@
 				<div class="panel-group">
 				<div class='panel panel-info'>
 				<div class='panel-heading'>
-						<a href="<?php echo site_url('admin/absensi/tambah') ?>"><i class="glyphicon glyphicon-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/nilai/tambah') ?>"><i class="glyphicon glyphicon-plus"></i> Add New</a>
 				</div>
 				<div class='panel-body'>
 						<div class="table-responsive">
@@ -19,35 +19,35 @@
 									<tr>
 										<th>Nama</th>
 										<th>Kelas</th>
-										<th>Tanggal Absen</th>
+										<th>Kompetensi Dasar</th>
+										<th>Nilai</th>
 										<th>Keterangan</th>
-										<th>Lampiran</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($absen as $absen): ?>
+									<?php foreach ($nilai as $nilai): ?>
 									<tr>
 										<td width="150">
-											<?php echo $absen->nama ?>
+											<?php echo $nilai->nama ?>
 										</td>
 										<td width="150">
-											<?php echo $absen->kelas, ' ';
-											echo $absen->jurusan ?>
+											<?php echo $nilai->kelas, ' ';
+											echo $nilai->jurusan ?>
 										</td>
 										<td width="150">
-											<?php echo $absen->tanggal ?>
+											<?php echo $nilai->kd ?>
 										</td>
 										<td width="150">
-											<?php echo $absen->alasan ?>
+											<?php echo $nilai->nilai ?>
 										</td>
 										<td width="150">
-											<?php echo $absen->keterangan ?>
+											<?php echo $nilai->keterangan ?>
 										</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/absensi/edit/'.$absen->id_absen) ?>"
+											<a href="<?php echo site_url('admin/nilai/edit/'.$nilai->id_nilai) ?>"
 											 class="btn btn-small"><i class="glyphicon glyphicon-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/absensi/delete/'.$absen->id_absen) ?>')"
+											<a onclick="deleteConfirm('<?php echo site_url('admin/nilai/delete/'.$nilai->id_nilai) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
 										</td>
 									</tr>

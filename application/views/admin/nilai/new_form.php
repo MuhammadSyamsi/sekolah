@@ -15,11 +15,11 @@
 				<div class="panel-group">
 				<div class='panel panel-info'>
 					<div class="panel-heading">
-						<a href="<?php echo site_url('admin/absensi/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+						<a href="<?php echo site_url('admin/nilai/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
 					</div>
 					<div class="panel-body">
 
-						<form action="<?php base_url('admin/absensi/tambah') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url('admin/nilai/tambah') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
 								<label for="name">Nama Siswa</label>
 								<select class="form-control1" id="sel1" name="id_siswa" placeholder="ID Siswa...">
@@ -39,20 +39,19 @@
                                 </select>
 							</div>
 
-							<input type="hidden" name="tanggal" value="<?php $tgl = date('Y-m-d'); echo $tgl; ?>" />
-
 							<div class="form-group">
-								<label for="name">Keterangan</label>
-								<select class="form-control1" id="sel1" name="alasan" placeholder="Berikan keterangan">
-                                <option value="sakit">sakit</option>
-                                <option value="izin">izin</option>
-                                <option value="alpha">alpha</option>
-                                </select>
+								<label for="name">Kompetensi Dasar</label>
+								<input class="form-control1" type="text" name="kd" placeholder="Kompetensi Dasar..." />
 							</div>
 
 							<div class="form-group">
-								<label for="name">Lampiran</label>
-								<input class="form-control1" id="sel1" name="keterangan" type="text" placeholder="contoh : (sakit) surat istirahat dari dokter" />
+								<label for="name">Niali</label>
+								<input class="form-control1" type="number" name="nilai" placeholder="Nilai Siswa..." />
+							</div>
+
+							<div class="form-group">
+								<label for="name">Keterangan</label>
+								<input class="form-control1" id="sel1" name="keterangan" type="text" placeholder="contoh : Siswa mampu membuat sebuah desain grafis dengan teknik gambar 2D dan 3D" />
 							</div>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />

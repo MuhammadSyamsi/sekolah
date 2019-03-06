@@ -2,12 +2,12 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Absensi extends CI_Controller
+class Nilai extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("m_absen", '', TRUE);
+        $this->load->model("m_nilai", '', TRUE);
         $this->load->model("m_siswa");
         $this->load->model("m_kelas");
         $this->load->library('form_validation');
@@ -23,8 +23,8 @@ class Absensi extends CI_Controller
     {
         $this->ceklogin();
         $this->load->view('admin');
-        $data["absen"] = $this->m_absen->getAll();
-        $this->load->view("admin/absensi/list", $data);
+        $data["nilai"] = $this->m_nilai->getAll();
+        $this->load->view("admin/nilai/list", $data);
     }
 
     public function tambah()
@@ -32,39 +32,39 @@ class Absensi extends CI_Controller
         $this->ceklogin();
         $data["siswa"] = $this->m_siswa->getAll();
         $data["kelas"] = $this->m_kelas->getAll();
-        $absen = $this->m_absen;
+        $nilai = $this->m_nilai;
         $validation = $this->form_validation;
-        $validation->set_rules($absen->rules());
+        $validation->set_rules($nilai->rules());
 
 
         if ($validation->run()) {
-            $absen->save();
+            $nilai->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
         $this->load->view("admin.php");
-        $this->load->view("admin/absensi/new_form", $data);
+        $this->load->view("admin/nilai/new_form", $data);
     }
 
     public function edit($id = null)
     {
         $this->ceklogin();
-        if (!isset($id)) redirect('admin/absensi');
+        if (!isset($id)) redirect('admin/nilai');
        
-        $absen = $this->m_absen;
+        $nilai = $this->m_nilai;
         $validation = $this->form_validation;
-        $validation->set_rules($absen->rules());
+        $validation->set_rules($nilai->rules());
 
         if ($validation->run()) {
-            $absen->update();
+            $nilai->update();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        $data["absen"] = $absen->getById($id);
-        if (!$data["absen"]) show_404();
+        $data["nilai"] = $nilai->getById($id);
+        if (!$data["nilai"]) show_404();
         
         $this->load->view("admin.php");
-        $this->load->view("admin/absensi/edit_form", $data);
+        $this->load->view("admin/nilai/edit_form", $data);
     }
 
     public function delete($id=null)
@@ -72,8 +72,8 @@ class Absensi extends CI_Controller
         $this->ceklogin();
         if (!isset($id)) show_404();
         
-        if ($this->m_absen->delete($id)) {
-            redirect(site_url('admin/absensi'));
+        if ($this->m_nilai->delete($id)) {
+            redirect(site_url('admin/nilai'));
         }
     }
 }

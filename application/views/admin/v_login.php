@@ -22,17 +22,22 @@
   <div class="login-logo">
     
   </div>
-  <h2 class="form-heading">login Administrator</h2>
+  <h2 class="form-heading">Login</h2>
   <div class="app-cam">
-	  <form action="<?php echo base_url('login/aksi_login'); ?>" method="post">
+	  <form action="<?php echo base_url('login'); ?>" method="post">
 		<input type="text" name="username" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
 		<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 		<div class="submit"><input type="submit" onclick="myFunction()" value="Login"></div>
 	</form>
+  <?php if ($this->session->flashdata('success')): ?>
+				<div class="alert alert-danger" role="alert">
+					<?php echo $this->session->flashdata('success'); ?>
+				</div>
+  <?php endif; ?>
   </div>
-   <div class="copy_layout login">
-   <p>Copyright &copy; 2018 ~ All Rights Reserved | Design by <a href="<?php echo base_url('') ?>" target="_blank">LPK MM SMARIFDA</a> </p>
-   </div>
+   <!-- <div class="copy_layout login">
+   <p>Copyright &copy; 2018 ~ All Rights Reserved | Design by <a href="#" target="_blank">LPK MM SMARIFDA</a> </p>
+   </div> -->
  
 </body>
 </html>
