@@ -19,9 +19,9 @@
 					</div>
 					<div class="panel-body">
 
-						<form action="<?php base_url('admin/absensi/tambah') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php base_url('admin/tambah_absensi') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
-								<label for="name">Nama Siswa</label>
+								<label for="name">Pilih Siswa</label>
 								<select class="form-control1" id="sel1" name="id_siswa" placeholder="ID Siswa...">
                                 <?php foreach ($siswa as $siswa): ?>
                                 <option value="<?php echo $siswa->id_siswa ?>"><?php echo $siswa->nama ?></option>
@@ -34,7 +34,7 @@
 								<select class="form-control1" id="sel1" name="id_kelas" placeholder="ID Siswa...">
                                 <?php foreach ($kelas as $kelas): ?>
                                 <option value="<?php echo $kelas->id_kelas ?>">
-								<?php echo $kelas->kelas; ?><?php echo ' ' . $kelas->jurusan; ?></option>
+								<?php echo $kelas->kelas; ?></option>
                                 <?php endforeach; ?>
                                 </select>
 							</div>

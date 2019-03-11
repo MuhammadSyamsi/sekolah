@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="admin">LPK MM SMARIFDA</a>
+                <a class="navbar-brand" href="<?php echo base_url("admin/profil") ?>"><h4><?php echo $this->session->userdata('ses_nama');?></h4></a>
             </div>
             <!-- /.navbar-header -->
             <div class="navbar-default sidebar" role="navigation">
@@ -49,52 +49,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="<?php echo base_url('admin') ?>"><i class="fa fa-dashboard fa-fw nav_icon"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-laptop nav_icon"></i>Kegiatan<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url('admin/kegiatan/tambah') ?>">Tambah Kegiatan</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url('admin/kegiatan') ?>">List Kegiatan</a>
-                                </li>
-                            </ul>
+                            <a href="<?php echo base_url('admin/kegiatan') ?>"><i class="fa fa-laptop nav_icon"></i>Kegiatan</a>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users nav_icon"></i>Siswa<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url('admin/siswa/tambah') ?>">Tambah</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url('admin/siswa') ?>">List</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="<?php echo base_url('admin/absensi') ?>"><i class="fa fa-table nav_icon"></i>Absensi</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-indent nav_icon"></i>Absensi<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url('admin/absensi/tambah') ?>">Tambah</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url('admin/absensi') ?>">List</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="<?php echo base_url('admin/tugas') ?>"><i class="fa fa-tasks nav_icon"></i>Tugas</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-book nav_icon"></i>Nilai<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?php echo base_url('admin/nilai/tambah') ?>">Tambah</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url('admin/nilai') ?>">List</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="<?php echo base_url('admin/nilai') ?>"><i class="fa fa-book nav_icon"></i>Nilai</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user nav_icon"></i>Profil<span class="fa arrow"></span></a>
@@ -116,5 +81,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- /.navbar-static-side -->
         </nav>
     <script src="<?php echo base_url('asset/admin/js/bootstrap.min.js') ?>"></script>
-</body>
-</html>
+    </div>

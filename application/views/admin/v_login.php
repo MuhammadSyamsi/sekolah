@@ -24,14 +24,14 @@
   </div>
   <h2 class="form-heading">Login</h2>
   <div class="app-cam">
-	  <form action="<?php echo base_url('login'); ?>" method="post">
+	  <form action="<?php echo base_url('login/auth'); ?>" method="post">
 		<input type="text" name="username" class="text" value="Username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}">
 		<input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
 		<div class="submit"><input type="submit" onclick="myFunction()" value="Login"></div>
 	</form>
   <?php if ($this->session->flashdata('success')): ?>
 				<div class="alert alert-danger" role="alert">
-					<?php echo $this->session->flashdata('success'); ?>
+					<?php echo $this->session->flashdata('msg'); ?>
 				</div>
   <?php endif; ?>
   </div>

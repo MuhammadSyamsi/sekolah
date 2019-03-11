@@ -36,13 +36,13 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($absen as $absen): ?>
+									<?php foreach ($cr_absen as $absen): ?>
 									<tr>
 										<td width="150">
-											<b><u><?php echo $absen->nama ?></u></b>
-											<h6><?php echo $absen->kelas; echo ', '; echo $absen->tanggal ?></h6>
-											<h5><?php echo $absen->alasan ?></h5>
-											<h6><i><?php echo $absen->keterangan ?></i></h6>
+											<?php echo $absen->nama ?>
+											<h5><?php echo $absen->tanggal ?>
+											<?php echo $absen->alasan ?></h5>
+											<h6><?php echo $absen->keterangan ?></h6>
 										</td>
 										<td width="150">
 											<a href="<?php echo base_url('admin/edit_absensi/'.$absen->id_absen) ?>"
