@@ -59,13 +59,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <a href="<?php echo base_url('admin/tugas') ?>"><i class="fa fa-tasks nav_icon"></i>Tugas</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('admin/nilai') ?>"><i class="fa fa-book nav_icon"></i>Nilai</a>
+                            <a href="<?php echo base_url('admin/rapot') ?>"><i class="fa fa-book nav_icon"></i>Nilai</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user nav_icon"></i>Profil<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="admin/event">Setting</a>
+                                    <a href="<?php echo base_url('admin/profil') ?>">Profil</a>
                                 </li>
                                 <li>
 									<a href="<?php echo base_url('login/logout'); ?>">Logout</a>

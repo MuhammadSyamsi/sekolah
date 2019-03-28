@@ -29,7 +29,7 @@
                         <i class="fa fa-picture-o text-light icon-xlg pull-right"></i>
                     </div>
                     <div class="social-info">
-                        <h3 class="number_counter bold count text-light start_timer counted">Kegiatan</h3>
+                        <h3 class="number_counter bold count text-light start_timer counted">Galeri</h3>
                         <h4 class="counttype text-light">Masuk ke menu kegiatan</h4>
                     </div>
                 </div></a>

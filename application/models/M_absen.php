@@ -38,6 +38,16 @@ class M_absen extends CI_Model
         return $this->db->get_where($this->_table, ["id_absen" => $id])->row();
     }
 
+    public function getSiswa()
+    {
+        // return $this->db->get_where($this->_table, ["id_siswa" => $this->session->userdata('ses_id')])->result();
+        $this->db->select('*');
+        $this->db->from('absensi_lpk');
+        $this->db->join('siswa', 'siswa.id_siswa = absensi_lpk.id_siswa');
+        $this->db->where('nama', $this->session->userdata('ses_nama'));
+        return $this->db->get()->result();
+    }
+
     public function save()
     {
         $post = $this->input->post();

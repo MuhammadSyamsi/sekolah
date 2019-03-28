@@ -14,7 +14,6 @@
 					</div>
 				</form>
 				<form class="form-group" method='post' action='<?php echo base_url('admin/cari_absensi') ?>'>
-				Atau cari berdasarkan tanngal <hr>
 					<div class="input-group input-icon right">
 					<input name="cari" class="form-control1" type="date">
 						<button type='submit' class='btn block btn-info'><i class="fa fa-search"></i></button>

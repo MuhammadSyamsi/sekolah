@@ -15,7 +15,7 @@
 				<div class="panel-group">
 				<div class='panel panel-info'>
 					<div class="panel-heading">
-						<a href="<?php echo site_url('admin/kegiatan/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+						<a href="<?php echo site_url('admin/kegiatan/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Kembali</a>
 					</div>
 					<div class="panel-body">
 
@@ -23,6 +23,9 @@
 
 							<input type="hidden" name="id" value="<?php echo $kegiatan->id_kegiatan?>" />
 
+								<label>NIP</label>
+							<input type="text" class='form-control' name="nip" value="<?php echo $kegiatan->nip?>" />
+							
 							<div class="form-group">
 								<label for="name">Judul*</label>
 								<input class="form-control1 <?php echo form_error('name') ? 'is-invalid':'' ?>"

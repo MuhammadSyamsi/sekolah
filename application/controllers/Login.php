@@ -49,7 +49,7 @@ class Login extends CI_Controller{
 						$data=$cek_siswa->row_array();
         				$this->session->set_userdata('masuk',TRUE);
 						$this->session->set_userdata('akses','3');
-						$this->session->set_userdata('ses_id',$data['nisn']);
+						$this->session->set_userdata('ses_id',$data['id_siswa']);
 						$this->session->set_userdata('ses_nama',$data['nama']);
 						redirect(base_url('admin/siswa'));
 				}else{  // jika username dan password tidak ditemukan atau salah

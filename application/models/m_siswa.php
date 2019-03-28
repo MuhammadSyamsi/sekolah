@@ -33,9 +33,14 @@ class M_siswa extends CI_Model
         return $this->db->get($this->_table)->result();
     }
     
-    public function getById($id)
+    public function getById($NISN)
     {
-        return $this->db->get_where($this->_table, ["id_siswa" => $id])->row();
+        return $this->db->get_where($this->_table, ["NISN" => $NISN])->row();
+    }
+
+    public function getId($id_siswa)
+    {
+        return $this->db->get_where($this->_table, ["id_siswa" => $id_siswa])->row();
     }
 
     public function save()
@@ -47,13 +52,14 @@ class M_siswa extends CI_Model
         $this->foto = $this->_uploadImage();
         $this->asal_sekolah = $post["asal_sekolah"];
         $this->alamat = $post["alamat"];
+        $this->pass = md5('siswa');
         $this->db->insert($this->_table, $this);
     }
 
     public function update()
     {
         $post = $this->input->post();
-        $this->id_siswa = $post["id"];
+        $this->id_siswa = $post["id_siswa"];
         $this->NISN = $post["NISN"];
         $this->nama = $post["nama"];
 
@@ -65,13 +71,13 @@ class M_siswa extends CI_Model
         
         $this->asal_sekolah = $post["asal_sekolah"];
         $this->alamat = $post["alamat"];
-        $this->db->update($this->_table, $this, array('id_siswa' => $post['id']));
+        $this->db->update($this->_table, $this, array('id_siswa' => $post['id_siswa']));
     }
 
-    public function delete($id)
+    public function delete($id_siswa)
     {
-        $this->_deleteImage($id);
-        return $this->db->delete($this->_table, array("id_siswa" => $id));
+        $this->_deleteImage($id_siswa);
+        return $this->db->delete($this->_table, array("id_siswa" => $id_siswa));
     }
 
     private function _uploadImage()
@@ -93,9 +99,9 @@ class M_siswa extends CI_Model
         return "default.jpg";
     }
 
-    private function _deleteImage($id)
+    private function _deleteImage($id_siswa)
     {
-        $siswa = $this->getById($id);
+        $siswa = $this->getId($id_siswa);
         if ($siswa->foto != "default.jpg") {
             $filename = explode(".", $siswa->foto)[0];
             return array_map('unlink', glob(FCPATH."upload/siswa/$filename.*"));

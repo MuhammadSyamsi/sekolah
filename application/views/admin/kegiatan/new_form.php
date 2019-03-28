@@ -15,11 +15,15 @@
 				<div class="panel-group">
 				<div class='panel panel-info'>
 					<div class="panel-heading">
-						<a href="<?php echo site_url('admin/kegiatan/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+						<a href="<?php echo base_url('admin/kegiatan') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
 					</div>
 					<div class="panel-body">
+					<div class="card-footer small text-muted">
+						* Wajib di isi
+					</div>
+						<form action="<?php base_url('admin/tambah_kegiatan') ?>" method="post" enctype="multipart/form-data" >
+							<input type="hidden" name='nip' value='<?php echo $this->session->userdata('ses_id') ?>'>
 
-						<form action="<?php base_url('admin/kegiatan/tambah') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
 								<label for="name">Judul*</label>
 								<input class="form-control1 <?php echo form_error('judul') ? 'is-invalid':'' ?>"
@@ -39,7 +43,7 @@
 							</div>
 							
 							<div class="form-group">
-								<label for="name">Foto</label>
+								<label for="name">Foto*</label>
 								<input class="form-control-file <?php echo form_error('foto') ? 'is-invalid':'' ?>"
 								 type="file" name="foto" />
 								<div class="invalid-feedback">
@@ -48,24 +52,15 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">Keterangan*</label>
-								<textarea class="form-control1 <?php echo form_error('keterangan') ? 'is-invalid':'' ?>"
-								 name="keterangan" placeholder="Keterangan Kegiatan..."></textarea>
-								<div class="invalid-feedback">
-									<?php echo form_error('keterangan') ?>
-								</div>
+								<label for="name">Keterangan</label>
+								<textarea class="form-control1" name="keterangan" placeholder="Keterangan Kegiatan..."></textarea>
 							</div>
 
-							<input class="btn btn-success" type="submit" name="btn" value="Save" />
+							<input class="btn btn-success" type="submit" name="btn" value="Tambah" />
 						</form>
 
 					</div>
-
-					<div class="card-footer small text-muted">
-						* required fields
-					</div>
-
-
+					
 				</div>
 				</div>
 				<!-- /.container-fluid -->

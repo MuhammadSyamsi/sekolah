@@ -24,41 +24,43 @@
 
 						<form action="<?php base_url('admin/tambah_tugas') ?>" method="post" enctype="multipart/form-data" >
 
-                        <input type="hidden" name='nip' value='<?php $this->session->userdata('ses_id'); ?>'>
-
-							<div class="form-group">
-								<label for="nomor">Nomor tugas</label>
-								<input type='text' class="form-control1" name="nomor" placeholder="...">
-                                </select>
-							</div>
+                        <input type="hidden" name='nip' value='<?php echo $this->session->userdata('ses_id'); ?>'>
 
                             <div class="form-group">
-								<label for="foto">Gambar</label>
-								<input class="form-control-file" type="file" name="foto" />
+								<label for="pic_soal">Gambar</label>
+								<input class="form-control-file" type="file" name="pic_soal" />
+							</div>
+
+							<div class="form-group">
+								<label for="name">Materi*</label>
+                                <input type='text' class="form-control1 <?php echo form_error('materi') ? 'is-invalid':'' ?> " name='materi' placeholder='Masukkan judul materi' />
+                                <div class="invalid-feedback">
+									<h5><?php echo form_error('materi') ?></H5>
+								</div>
 							</div>
 
 							<div class="form-group">
 								<label for="name">Soal*</label>
                                 <textarea rows="6" class="form-control1 control2 <?php echo form_error('soal') ? 'is-invalid':'' ?> " name='soal'></textarea>
                                 <div class="invalid-feedback">
-									<?php echo form_error('soal') ?>
+									<h5><?php echo form_error('soal') ?></H5>
 								</div>
 							</div>
 
                             <div class='form-group'>
                                 <label for="tanggal">Batas pengumpulan tugas</label>
-    							<input type="date" class='form-control1' name="tanggal" />
+    							<input type="date" class='form-control1' name="batas" />
                             </div>
 
 							<div class="form-group">
 								<label for="kelas">Untuk kelas*</label>
 								<select class="form-control1 <?php echo form_error('kelas') ? 'is-invalid':'' ?>" id="sel1" name="kelas">
-                                <option value="X MIPA">X</option>
-                                <option value="X IPS">X</option>
-                                <option value="XI MIPA">XI</option>
-                                <option value="XI IPS">XI</option>
-                                <option value="XII MIPA">XII</option>
-                                <option value="XII IPS">XII</option>
+                                <option value="X MIPA">X MIPA</option>
+                                <option value="X IPS">X IPS</option>
+                                <option value="XI MIPA">XI MIPA</option>
+                                <option value="XI IPS">XI IPS</option>
+                                <option value="XII MIPA">XII MIPA</option>
+                                <option value="XII IPS">XII IPS</option>
                                 </select>
                                 <div class="invalid-feedback">
 									<?php echo form_error('kelas') ?>

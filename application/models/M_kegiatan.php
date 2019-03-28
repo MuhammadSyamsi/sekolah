@@ -5,8 +5,10 @@ class M_kegiatan extends CI_Model
     private $_table = "kegiatan";
 
     public $id_kegiatan;
+    public $nip;
     public $judul;
     public $foto = "default.jpg";
+    public $tanggal;
     public $keterangan;
 
     public function rules()
@@ -14,11 +16,11 @@ class M_kegiatan extends CI_Model
         return [
             ['field' => 'judul',
             'label' => 'judul',
-            'rules' => 'required'],
-
-            ['field' => 'keterangan',
-            'label' => 'keterangan',
             'rules' => 'required']
+
+            // ['field' => 'foto',
+            // 'label' => 'foto',
+            // 'rules' => 'required']
         ];
     }
 
@@ -27,15 +29,22 @@ class M_kegiatan extends CI_Model
         return $this->db->get($this->_table)->result();
     }
     
-    public function getById($id)
+    public function getById($id_kegiatan)
     {
-        return $this->db->get_where($this->_table, ["id_kegiatan" => $id])->row();
+        return $this->db->get_where($this->_table, ["id_kegiatan" => $id_kegiatan])->row();
+    }
+
+    public function getNip()
+    {
+        $this->db->where('nip', $this->session->userdata('ses_id'));
+        return $this->db->get($this->_table)->result();
     }
 
     public function save()
     {
         $post = $this->input->post();
         $this->id_kegiatan = uniqid();
+        $this->nip = $post["nip"];
         $this->judul = $post["judul"];
         $this->tanggal = $post["tanggal"];
         $this->foto = $this->_uploadImage();
@@ -48,6 +57,7 @@ class M_kegiatan extends CI_Model
         $post = $this->input->post();
         $this->id_kegiatan = $post["id"];
         $this->judul = $post["judul"];
+        $this->nip = $post["nip"];
         $this->tanggal = $post["tanggal"];
 
         if (!empty($_FILES["foto"]["name"])) {
@@ -72,7 +82,7 @@ class M_kegiatan extends CI_Model
         $config['allowed_types']        = 'gif|jpg|png';
         $config['file_name']            = $this->id_kegiatan;
         $config['overwrite']			= true;
-        $config['max_size']             = 5120; // 5MB
+        // $config['max_size']             = 5120; // 5MB
         // $config['max_width']            = 1024;
         // $config['max_height']           = 768;
 
@@ -81,7 +91,6 @@ class M_kegiatan extends CI_Model
         if ($this->upload->do_upload('foto')) {
             return $this->upload->data("file_name");
     }
-    
         return "default.jpg";
     }
 

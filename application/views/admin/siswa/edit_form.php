@@ -15,13 +15,16 @@
 				<div class="panel-group">
 				<div class='panel panel-info'>
 					<div class="panel-heading">
-						<a href="<?php echo site_url('admin/siswa/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+						<a href="<?php echo base_url('admin/data_siswa/') ?>"><i class="glyphicon glyphicon-arrow-left"></i> Kembali</a>
 					</div>
 					<div class="panel-body">
+					<div class="card-footer small text-muted">
+						* Wajib di isi
+					</div>
 
-						<form action="<?php base_url('admin/siswa/edit') ?>" method="post" enctype="multipart/form-data">
+						<form action="<?php base_url('admin/edit_siswa') ?>" method="post" enctype="multipart/form-data">
 
-							<input type="hidden" name="id" value="<?php echo $siswa->id_siswa?>" />
+							<input type="hidden" name="id_siswa" value="<?php echo $siswa->id_siswa?>" />
 
 							<div class="form-group">
 								<label for="name">NISN*</label>
@@ -70,12 +73,6 @@
 						</form>
 
 					</div>
-
-					<div class="card-footer small text-muted">
-						* required fields
-					</div>
-
-
 				</div>
 			</div>
 			<!-- /.content-wrapper -->

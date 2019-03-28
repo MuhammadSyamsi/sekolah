@@ -51,7 +51,7 @@
                         <a href="<?php echo base_url('home/nilai') ?>"><i class="fa fa-file nav_icon pull-right"></i> Nilai</a>
                     </li>
                     <li>
-                        <a href="https://www.youtube.com/channel/UCqAbTGRvLDglgM9Ux2zeEEw/videos"><i class="fa fa-film nav_icon pull-right"></i> Video</a>
+                        <a href="https://www.youtube.com/channel/UCqAbTGRvLDglgM9Ux2zeEEw/videos" target='_blabk'><i class="fa fa-film nav_icon pull-right"></i> Video</a>
                     </li>
                     <li>
                         <h4><a href="<?php echo base_url('login') ?>" class='text-center download' ><i class="fa fa-lock nav_icon"></i> Login</a></h4>

@@ -10,39 +10,31 @@
 				<div class="panel-group">
 				<div class='panel panel-info'>
 				<div class='panel-heading'>
-						<a href="<?php echo site_url('admin/kegiatan/tambah') ?>"><i class="glyphicon glyphicon-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/tambah_kegiatan') ?>"><i class="glyphicon glyphicon-plus"></i> Tambah Kegiatan</a>
 				</div>
 				<div class='panel-body'>
 						<div class="table-responsive">
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
 									<tr>
-										<th>Judul</th>
-										<th>Tanggal</th>
-										<th>Foto</th>
-										<th>Keterangan</th>
+										<th>Kegiatan</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php foreach ($kegiatan as $product): ?>
 									<tr>
-										<td width="150">
-											<?php echo $product->judul ?>
+										<td width="250">
+											<img src="<?php echo base_url('upload/kegiatan/'.$product->foto) ?>" class='pull-left col-xs-3' />
+											<h4><?php echo $product->judul ?></h4>
+											<h6><?php echo $product->tanggal ?></h6>
+											<p><?php echo substr($product->keterangan, 0, 120) ?></p>
 										</td>
 										<td width="250">
-											<?php echo $product->tanggal ?>
-										</td>
-										<td>
-											<img src="<?php echo base_url('upload/kegiatan/'.$product->foto) ?>" width="64" />
-										</td>
-										<td>
-											<?php echo substr($product->keterangan, 0, 120) ?>...</td>
-										<td width="250">
-											<a href="<?php echo site_url('admin/kegiatan/edit/'.$product->id_kegiatan) ?>"
+											<a href="<?php echo base_url('admin/edit_kegiatan/'.$product->id_kegiatan) ?>"
 											 class="btn btn-small"><i class="glyphicon glyphicon-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo site_url('admin/kegiatan/delete/'.$product->id_kegiatan) ?>')"
-											 href="#!" class="btn btn-small text-danger"><i class="glyphicon glyphicon-trash"></i> Hapus</a>
+											 href="#!" class="btn btn-small text-danger"><i class="glyphicon glyphicon-trash"></i></a>
 										</td>
 									</tr>
 									<?php endforeach; ?>
